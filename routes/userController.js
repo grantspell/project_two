@@ -8,8 +8,8 @@ const UserModel = Schema.UserModel
 router.get('/', (req, res) => {
 
     UserModel.find({})
-        .then((user) => {
-            res.render('user/index', {
+        .then((users) => {
+            res.render('users/index', {
                 users: users
             })
         })
