@@ -14,6 +14,7 @@ mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
 
 const db = mongoose.connection
+
 db.on('error', (error) => {
   console.log(error)
 })
@@ -42,8 +43,8 @@ app.use('/', indexController)
 const userController = require('./routes/userController')
 app.use('/users', userController)
 
-const cardsController = require('./routes/cardsController')
-app.use('/users/:userId/cards', cardsController)
+/* const cardsController = require('./routes/cardsController')
+app.use('/users/:userId/cards', cardsController) */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
