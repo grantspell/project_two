@@ -56,8 +56,8 @@ eCards.forEach((eCard) => {
         .then((eCard) => {
             console.log(`${eCard.cardName} saved!`)
         })
-        .catch((error) => {
-            console.log(error)
+        .catch((err) => {
+            console.log(err)
         })
 
 })
@@ -70,8 +70,8 @@ printCards.forEach((printCard) => {
         .then((printCard) => {
             console.log(`${printCard.cardName} saved!`)
         })
-        .catch((error) => {
-            console.log(error)
+        .catch((err) => {
+            console.log(err)
         })
 });
 
@@ -84,8 +84,8 @@ users.forEach((user) => {
         .then((user) => {
             console.log(`${user.name} saved!`)
         })
-        .catch((error) => {
-            console.log(error)
+        .catch((err) => {
+            console.log(err)
         })
 });
 
