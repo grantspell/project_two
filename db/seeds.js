@@ -7,8 +7,8 @@ mongoose.connect(process.env.MONGODB_URI)
 const db = mongoose.connection
 
 // ERROR LOGGER
-db.on('error', function (err) {
-    console.log(err);
+db.on('error', function (error) {
+    console.log(error);
 });
 
 db.once('open', function () {
@@ -24,8 +24,8 @@ const PrintCardModel = Schema.PrintCardModel;
 const ECardModel = Schema.ECardModel;
 
 // DELETE ALL USERS FROM DB
-UserModel.remove({}, function (err) {
-    console.log(err);
+UserModel.remove({}, function (error) {
+    console.log(error);
 });
 
 // EXISTING USERS
@@ -56,8 +56,8 @@ eCards.forEach((eCard) => {
         .then((eCard) => {
             console.log(`${eCard.cardName} saved!`)
         })
-        .catch((err) => {
-            console.log(err)
+        .catch((error) => {
+            console.log(error)
         })
 
 })
@@ -70,8 +70,8 @@ printCards.forEach((printCard) => {
         .then((printCard) => {
             console.log(`${printCard.cardName} saved!`)
         })
-        .catch((err) => {
-            console.log(err)
+        .catch((error) => {
+            console.log(error)
         })
 });
 
@@ -84,8 +84,8 @@ users.forEach((user) => {
         .then((user) => {
             console.log(`${user.name} saved!`)
         })
-        .catch((err) => {
-            console.log(err)
+        .catch((error) => {
+            console.log(error)
         })
 });
 
