@@ -1,21 +1,29 @@
 require('dotenv').config();
 
+//REQUIRE DEPENDENCIES
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+
+//MONGOOSE DATABASE
+mongoose.Promise = global.Promise
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
+
+const db = mongoose.connection
+db.on('error', (error) => {
+  console.log(error)
+})
+db.once('open', () => {
+  console.log('=DB= CONNECTED TO MONGODB =DB=')
+})
 
 var app = express();
 
-// view engine setup
+// view engine setup = HBS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -26,6 +34,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// REGISTER CONTROLLERS
+var index = require('./routes/index');
+var users = require('./routes/users');
 
 app.use('/', index);
 app.use('/users', users);
