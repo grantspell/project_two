@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 
 // CELEBRANT
 const CelebrantSchema = new Schema({
-    _id: ObjectId,
     firstName: {
         type: String,
         required: true
@@ -26,7 +25,6 @@ const CelebrantSchema = new Schema({
 
 //PRINT CARDS
 const PrintCardSchema = new Schema({
-    _id: ObjectId,
     cardName: {
         type: String,
         required: true
@@ -36,12 +34,14 @@ const PrintCardSchema = new Schema({
         type: String,
         required: false
     },
-    type: 'PRINT'
+    type: {
+        type: String,
+        required: true
+    }
 });
 
 //iCARDS
 const ECardSchema = new Schema({
-    _id: ObjectId,
     cardName: {
         type: String,
         required: true
@@ -51,12 +51,14 @@ const ECardSchema = new Schema({
         type: String,
         required: false
     },
-    type: 'eCard'
+    type: {
+        type: String,
+        required: true
+    }
 });
 
 //USERS
 const UserSchema = new Schema({
-    _id: ObjectId,
     name: {
         type: String,
         required: true
