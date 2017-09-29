@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
                 users: users
             })
         })
-        .catch((errpr) => {
+        .catch((error) => {
             console.log(error)
         })
 })

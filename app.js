@@ -49,12 +49,12 @@ app.use('/users/:userId/cards', cardsController) */
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var error = new Error('Not Found');
-  err.status = 404;
+  error.status = 404;
   next(error);
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function(error, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = error.message;
   res.locals.error = req.app.get('env') === 'development' ? error : {};
