@@ -5,7 +5,18 @@ const Schema = require('../db/schema.js')
 const UserModel = Schema.UserModel
 
 // INDEX ROUTE
+router.get('/', (req, res) => {
 
+    UserModel.find({})
+        .then((user) => {
+            res.render('user/index', {
+                users: users
+            })
+        })
+        .catch((errpr) => {
+            console.log(error)
+        })
+})
 
 // NEW ROUTE
 

@@ -36,11 +36,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // REGISTER CONTROLLERS
-var index = require('./routes/index');
-var users = require('./routes/users');
+const indexController = require('./routes/indexController')
+app.use('/', indexController)
 
-app.use('/', index);
-app.use('/users', users);
+const userController = require('./routes/userController')
+app.use('/users', userController)
+
+const cardsController = require('./routes/cardsController')
+app.use('/users/:userId/cards', cardsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
