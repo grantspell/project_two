@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 
     UserModel.find({})
         .then((users) => {
+            console.log(users)
             res.render('users/index', {
                 users: users
             })
@@ -19,21 +20,84 @@ router.get('/', (req, res) => {
 })
 
 // NEW ROUTE
-
+router.get('/new', (req, res) => {
+    res.render('users/new')
+})
 
 // CREATE ROUTE
+router.post('/', (req, res) => {
 
+    const newUser = req.body
+
+    UserModel.create(newUser)
+        .then(() => {
+            res.redirect('/users')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 // EDIT ROUTE
+router.get('/:userId/edit', (req, res) => {
 
+    const userId = req.params.userId
+
+    UserModel.findById(userId)
+        .then((user) => {
+            res.render('users/edit', {
+                user: user
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 // UPDATE ROUTE
+router.put('/:userId', (req, res) => {
 
+    const userId = req.params.userId
+    const updatedUser = req.body
+
+    UserModel.findByIdAndUpdate(userId, updatedUser, { new: true})
+        .then(() => {
+            res.redirect(`/users/${userId}`)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 // SHOW ROUTE
+router.get('/:userId', (req, res) => {
 
+    const userId = req.params.userId
+
+    UserModel.findById(userId)
+        .then((user) => {
+            res.render('users/show', {
+                user: user,
+                userId: userId
+            })
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 // DELETE ROUTE
+router.get('/:userId/delete', (req, res) => {
 
+    const userId = req.params.userId
+
+    UserModel.findByIdAndRemove(userId)
+        .then(() => {
+            res.redirect('/users')
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+})
 
 module.exports = router

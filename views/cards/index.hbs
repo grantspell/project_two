@@ -1,26 +1,23 @@
 {{!-- DISPLAY USERS CARDS --}}
 <div>
     <h1>{{user.name}}'s Cards</h1>
-    <h4>Username: <a href="/users/{{userId}}">@{{user.username}}</a></h4>
     <hr>
     <h3>{{user.name}}'s Printable Cards</h3>
     <br>
-    {{#each user.userPrintCards}}
+    {{#each user.printCards}}
         <div>
             {{this.cardName}}
-            <br>
-            {{this.celebrant.firstName}}
+            {{this.celebrant}}
         </div>
         <br>
     {{/each}}
 
     <h3>{{user.name}}'s eCards</h3>
     <br>
-    {{#each user.userECards}}
+    {{#each user.eCards}}
         <div>
             {{this.cardName}}
-            <br>
-            {{this.celebrant.firstName}}
+            {{this.celebrant}}
         </div>
         <br>
     {{/each}}

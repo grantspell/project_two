@@ -50,7 +50,7 @@ const eCards = [welcomeCard]
 
 eCards.forEach((eCard) => {
     
-    eCard.celebrants = celebrants
+    eCard.celebrant = celebrants
 
     eCard.save()
         .then((eCard) => {
@@ -64,7 +64,7 @@ eCards.forEach((eCard) => {
 
 printCards.forEach((printCard) => {
     
-    printCard.celebrants = celebrants
+    printCard.celebrant = celebrants
 
     printCard.save()
         .then((printCard) => {
@@ -77,8 +77,8 @@ printCards.forEach((printCard) => {
 
 users.forEach((user) => {
 
-    user.printCards = printCards
-    user.eCards = eCards
+    user.userPrintCards = printCards
+    user.userECards = eCards
 
     user.save()
         .then((user) => {

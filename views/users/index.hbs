@@ -5,7 +5,11 @@
         {{#each users}}
             <div>
                 {{this.name}} -- {{this.username}}
+                <br>
+                <a href="/users/{{this.id}}">{{this.name}}'s Info</a>
+                <a href="/users/{{this.id}}/cards/">{{this.name}}'s Cards</a>
             </div>
+            <br>
         {{/each}}
     </div>
 
