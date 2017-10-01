@@ -4,6 +4,7 @@
     <h4>Username: <a href="/users/{{userId}}">@{{user.username}}</a></h4>
     <div>
     <input type="submit" value="Edit User" onclick="window.location=`/users/{{user._id}}/edit`;" />
+    <input type="submit" value="Delete User" onclick="window.location=`/users/{{user._id}}/delete`;" />
     </div>
     <hr>
     <h3>{{user.name}}'s Printable Cards</h3>
