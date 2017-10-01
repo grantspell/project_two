@@ -2,6 +2,10 @@
     <h1>Users Index</h1>
 
     <div>
+        <input type="submit" value="Create New User" onclick="window.location='/users/new';" />
+    </div>
+    <br>
+    <div>
         {{#each users}}
             <div>
                 {{this.name}} -- {{this.username}}
