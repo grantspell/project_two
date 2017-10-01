@@ -2,7 +2,9 @@
 <div>
     <h1>{{user.name}}'s Cards</h1>
     <h4>Username: <a href="/users/{{userId}}">@{{user.username}}</a></h4>
-
+    <div>
+    <input type="submit" value="Edit User" onclick="window.location=`/users/{{user._id}}/edit`;" />
+    </div>
     <hr>
     <h3>{{user.name}}'s Printable Cards</h3>
     <br>
