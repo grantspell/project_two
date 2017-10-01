@@ -3,38 +3,13 @@ const mongoose = require('mongoose');
 // SCHEMAS
 const Schema = mongoose.Schema;
 
-// CELEBRANT
-const CelebrantSchema = new Schema({
-    firstName: {
-        type: String,
-        required: true
-    },
-    lastName: {
-        type: String,
-        required: false
-    },
-    age: {
-        type: Number,
-        required: true
-    },
-    birthDate: {
-        type: Date,
-        default: Date.now
-    }
-});
-
 //PRINT CARDS
 const PrintCardSchema = new Schema({
     cardName: {
         type: String,
         required: true
     },
-    celebrant: [CelebrantSchema],
-    message: {
-        type: String,
-        required: false
-    },
-    type: {
+    image: {
         type: String,
         required: true
     }
@@ -46,12 +21,15 @@ const ECardSchema = new Schema({
         type: String,
         required: true
     },
-    celebrant: [CelebrantSchema],
-    message: {
+    toPerson: {
         type: String,
-        required: false
+        required: true
     },
-    type: {
+    fromPerson: {
+        type: String,
+        required: true
+    },
+    message: {
         type: String,
         required: true
     }
@@ -77,14 +55,12 @@ const UserSchema = new Schema({
 
 // MODELS
 const UserModel = mongoose.model('User', UserSchema)
-const CelebrantModel = mongoose.model('Celebrant', CelebrantSchema)
 const PrintCardModel = mongoose.model('Print', PrintCardSchema)
 const ECardModel = mongoose.model('eCard', ECardSchema)
 
 // EXPORTS
 module.exports = {
     UserModel: UserModel,
-    CelebrantModel: CelebrantModel,
     PrintCardModel: PrintCardModel,
     ECardModel: ECardModel
 }

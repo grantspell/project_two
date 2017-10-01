@@ -19,7 +19,6 @@ db.once('open', function () {
 const Schema = require('./schema.js');
 
 const UserModel = Schema.UserModel;
-const CelebrantModel = Schema.CelebrantModel;
 const PrintCardModel = Schema.PrintCardModel;
 const ECardModel = Schema.ECardModel;
 
@@ -33,24 +32,18 @@ const grant = new UserModel({ name: 'Grant', username: 'GrantSpell', email: 'Spe
 const miley = new UserModel({ name: 'Miley', username: 'MileyCyrus', email: 'MalibuBarbie@gmail.com' })
 const june = new UserModel({ name: 'June', username: 'JuneCash', email: 'RingOfFireWidow@hotmail.com' })
 
-// EXISTING CELEBRANTS
-const celebrantViv = new CelebrantModel({ firstName: 'Viv', lastName: 'Spell', age: 50, birthDate: '1968-09-29' })
-
 // EXISTING PRINT CARDS
-const birthdayCard = new PrintCardModel({ cardName: 'Vivs Birthday', message: 'Happy Birthday, Mom!', type: 'PRINT' })
+const birthdayCard = new PrintCardModel({ cardName: 'Vivs Birthday', image: "URL HERE" })
 
 // EXISTING eCARDS
-const welcomeCard = new ECardModel({ cardName: 'Welcome', message: 'Welcome Home, Honey!', type: 'eCARD' })
+const welcomeCard = new ECardModel({ cardName: 'Welcome', toPerson: "John", fromPerson: "Me", message: "Happy Birthday, Johnny Boy!" })
 
 // ASSIGN CARDS TO USERS
 const users = [grant, miley, june]
-const celebrants = [celebrantViv]
 const printCards = [birthdayCard]
 const eCards = [welcomeCard] 
 
 eCards.forEach((eCard) => {
-    
-    eCard.celebrant = celebrants
 
     eCard.save()
         .then((eCard) => {
@@ -63,8 +56,6 @@ eCards.forEach((eCard) => {
 })
 
 printCards.forEach((printCard) => {
-    
-    printCard.celebrant = celebrants
 
     printCard.save()
         .then((printCard) => {

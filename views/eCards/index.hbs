@@ -1,0 +1,9 @@
+    <h3>{{user.name}}'s eCards</h3>
+    <br>
+    {{#each user.eCards}}
+        <div>
+            {{this.cardName}}
+            {{this.celebrant}}
+        </div>
+        <br>
+    {{/each}}

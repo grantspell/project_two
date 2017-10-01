@@ -1,0 +1,9 @@
+    <h3>{{user.name}}'s Printable Cards</h3>
+    <br>
+    {{#each user.printCards}}
+        <div>
+            {{this.cardName}}
+            {{this.celebrant}}
+        </div>
+        <br>
+    {{/each}}
