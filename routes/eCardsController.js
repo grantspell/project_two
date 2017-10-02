@@ -53,12 +53,12 @@ router.post('/', (req, res) => {
 router.get('/:eCardsId/edit', (req, res) => {
 
     const userId = req.params.userId
-    const eCardId = req.params.eCardId
+    const eCardId = req.params.eCardsId
 
     UserModel.findById(userId)
         .then((user) => {
             const eCard = user.userECards.id(eCardId)
-
+            
             res.render('eCards/edit', {
                 eCard: eCard,
                 userId: userId
@@ -71,19 +71,18 @@ router.get('/:eCardsId/edit', (req, res) => {
 
 // UPDATE ROUTE
 router.put('/:eCardId', (req, res) => {
-
     const userId = req.params.userId
     const eCardId = req.params.eCardId
     const updatedECard = req.body
 
-    UserModel.findById(userId)
+    UserModel.findByIdAndUpdate(userId)
         .then((user) => {
             const eCard = user.userECards.id(eCardId)
-
-            userECard.cardName = updatedECard.cardName
-            userECard.toPerson = updatedECard.toPerson
-            userECard.fromPerson = updatedECard.fromPerson
-            userECard.message = updatedECard.message
+            
+            eCard.cardName = updatedECard.cardName
+            eCard.toPerson = updatedECard.toPerson
+            eCard.fromPerson = updatedECard.fromPerson
+            eCard.message = updatedECard.message
 
             return user.save()
         })

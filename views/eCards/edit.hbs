@@ -1,0 +1,28 @@
+
+{{userId}}
+{{eCardId}}
+<form action="/users/{{userId}}/eCards/{{eCard.id}}?_method=PUT" method="POST">
+
+    <div>
+        <label for="cardName">Card Name: </label>
+        <input type="text" name="cardName" value="{{eCard.cardName}}">
+    </div>
+    <br>
+    <div>
+        <label for="toPerson">To: </label>
+        <input type="text" name="toPerson" value="{{eCard.toPerson}}">
+    </div>
+    <br>
+    <div>
+        <label for="fromPerson">From: </label>
+        <input type="text" name="fromPerson" value="{{eCard.fromPerson}}">
+    </div>
+    <br>
+    <div>
+        <label for="message">Message: </label>
+        <input type="text" name="message" value="{{eCard.message}}">
+    </div>
+    <br>
+    <input type="submit" value="Publish">
+
+</form>

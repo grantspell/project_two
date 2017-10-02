@@ -2,10 +2,11 @@
 
     {{eCard.cardName}}
     <br>
-    <h3>To: {{eCard.toPerson}}</h3>
-    <h3>From: {{eCard.fromPerson}}</h3>
+    <h5>To: {{eCard.toPerson}}</h5>
+    <h5>From: {{eCard.fromPerson}}</h5>
+    <h5>Message: {{eCard.message}}</h5>
     <br>
-    <a href="/users/{{userId}}/eCards/{{eCard._id}}/edit">Edit eCard</a>
-    <a href="/users/{{userId}}/eCards/{{eCard._id}}/delete">Delete eCard</a>
+    <input type="submit" value="Edit eCard" onclick="window.location=`/users/{{userId}}/eCards/{{eCard._id}}/edit`;" />
+    <input type="submit" value="Delete eCard" onclick="window.location=`/users/{{userId}}/eCards/{{eCard._id}}/delete`;" />
 
 </div>

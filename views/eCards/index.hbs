@@ -9,15 +9,23 @@
         {{#each user.userECards}}
 
             <div>
-                {{this.cardName}}
-                {{this.toPerson}}
-                {{this.fromPerson}}
-                {{this.message}}
+                <div>
+                <h5>Name: {{this.cardName}}</h5>
+                </div>
+                <div>
+                <h5>To: {{this.toPerson}}</h5>
+                </div>
+                <div>
+                <h5>From: {{this.fromPerson}}</h5>
+                </div>
+                <div>
+                <h5>Message: {{this.message}}</h5>
+                </div>
             </div>
             <div>
                 <a href="/users/{{../user._id}}/eCards/{{this._id}}">View eCard</a>
             </div>
-
+        <br>
         {{/each}}
     </div>
 
