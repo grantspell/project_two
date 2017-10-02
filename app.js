@@ -43,14 +43,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 const indexController = require('./routes/indexController')
 app.use('/', indexController)
 
+const printCardsController = require('./routes/printCardsController')
+app.use('/printcards', printCardsController)
+
 const userController = require('./routes/userController')
 app.use('/users', userController)
 
 const eCardsController = require('./routes/eCardsController')
 app.use('/users/:userId/ecards', eCardsController)
 
-const printCardsController = require('./routes/printCardsController')
-app.use('/printcards', printCardsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

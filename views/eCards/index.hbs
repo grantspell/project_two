@@ -1,14 +1,12 @@
 <div>
     <h3>{{user.name}}</h3>
-</div>
-
-
-    {{!-- 
-    <h3>{{user.name}}'s eCards</h3>
     <br>
-    {{#each user.eCards}}
-        <div>
-            {{this.cardName}}
-        </div>
-        <br>
-    {{/each}} --}}
+    {{#each user.userECards}}
+
+        {{this.cardName}}
+        {{this.toPerson}}
+        {{this.fromPerson}}
+        {{this.message}}
+
+    {{/each}}
+</div>
