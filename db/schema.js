@@ -49,13 +49,12 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    userPrintCards: [PrintCardSchema],
     userECards: [ECardSchema]
 });
 
 // MODELS
 const UserModel = mongoose.model('User', UserSchema)
-const PrintCardModel = mongoose.model('Print', PrintCardSchema)
+const PrintCardModel = mongoose.model('PrintCard', PrintCardSchema)
 const ECardModel = mongoose.model('eCard', ECardSchema)
 
 // EXPORTS

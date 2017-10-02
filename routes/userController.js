@@ -3,6 +3,7 @@ const router = express.Router()
 
 const Schema = require('../db/schema.js')
 const UserModel = Schema.UserModel
+const methodOveride = require('method-override')
 
 // INDEX ROUTE
 router.get('/', (req, res) => {
@@ -60,7 +61,7 @@ router.put('/:userId', (req, res) => {
     const userId = req.params.userId
     const updatedUser = req.body
 
-    UserModel.findByIdAndUpdate(userId, updatedUser, { new: true})
+    UserModel.findByIdAndUpdate(userId, updatedUser, { new: true })
         .then(() => {
             res.redirect(`/users/${userId}`)
         })

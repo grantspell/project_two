@@ -8,6 +8,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+const methodOverride = require('method-override');
 
 //MONGOOSE DATABASE
 mongoose.Promise = global.Promise
@@ -23,6 +24,8 @@ db.once('open', () => {
 })
 
 var app = express();
+
+app.use(methodOverride('_method'))
 
 // view engine setup = HBS
 app.set('views', path.join(__dirname, 'views'));
@@ -43,8 +46,11 @@ app.use('/', indexController)
 const userController = require('./routes/userController')
 app.use('/users', userController)
 
-const cardsController = require('./routes/cardsController')
-app.use('/users/:userId/cards', cardsController)
+const eCardsController = require('./routes/eCardsController')
+app.use('/users/:userId/ecards', eCardsController)
+
+const printCardsController = require('./routes/printCardsController')
+app.use('/printcards', printCardsController)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

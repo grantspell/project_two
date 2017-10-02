@@ -4,7 +4,6 @@ const router = express.Router()
 const Schema = require('../db/schema.js')
 
 const UserModel = Schema.UserModel
-const PrintCardModel = Schema.PrintCardModel
 const ECardModel = Schema.ECardrModel
 
 // INDEX ROUTE
@@ -14,7 +13,7 @@ router.get('/', (req, res) => {
 
     UserModel.findById(userId)
         .then((user) => {
-            res.render('cards/index', {
+            res.render('eCards/index', {
                 user: user
             })
         })
@@ -24,10 +23,31 @@ router.get('/', (req, res) => {
 })
 
 // NEW ROUTE
+router.get('/new', (req, res) => {
 
+    const userId = req.params.userId
+
+    res.render('eCards/new', {
+        userId: userId
+    })
+
+})
 
 // CREATE ROUTE
+router.post('/', (req, res) => {
 
+    const userId = req.params.userId
+    const newECard = req.body
+
+    UserModel.findById(userId)
+        .then((user) => {
+            user.eCards.push(newECard)
+            return user.save()
+        })
+        .then((user) => {
+            res.redirect(`/users/${userId}/eCards`)
+        })
+})
 
 // EDIT ROUTE
 

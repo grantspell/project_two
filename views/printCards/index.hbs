@@ -1,9 +1,11 @@
-    <h3>{{user.name}}'s Printable Cards</h3>
+    <h3>Printable Cards</h3>
     <br>
-    {{#each user.printCards}}
+    {{#each printcards}}
         <div>
-            {{this.cardName}}
-            {{this.celebrant}}
+            <a href="/printcards/{{this.id}}">{{this.cardName}}</a>
         </div>
+{{!--         <div>
+            <input type="submit" value="View Card" onclick="window.location='/printCards/{{this._id}}/';" />
+        </div> --}}
         <br>
     {{/each}}
