@@ -1,13 +1,27 @@
 html,
 body {
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  align-content: center;
+  font-family: 'Slabo 27px', serif;
+}
 
+.flexContainerBG {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background-image: url('../images/resized-env.png');
+}
 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.flexContainerContent {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex: 1;
 }
 
 a {
-  color: #00B7FF;
+  color: #003295;
 }

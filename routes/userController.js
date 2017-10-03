@@ -10,7 +10,6 @@ router.get('/', (req, res) => {
 
     UserModel.find({})
         .then((users) => {
-            console.log(users)
             res.render('users/index', {
                 users: users
             })
