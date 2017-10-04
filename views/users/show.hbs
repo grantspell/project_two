@@ -1,10 +1,11 @@
 {{!-- DISPLAY USERS CARDS --}}
-<div>
+<div class="container">
     <h1>{{user.name}}'s Cards</h1>
     <h4>Username: <a href="/users/{{userId}}">@{{user.username}}</a></h4>
     <div>
     <input type="submit" value="Edit User" onclick="window.location=`/users/{{user._id}}/edit`;" />
     <input type="submit" value="Delete User" onclick="window.location=`/users/{{user._id}}/delete`;" />
+        <input type="submit" value="Back To Users" onclick="window.location=`/users`;" />
     </div>
     <hr>
 {{!--     <h3><a href="{{user._id}}/printCards/">{{user.name}}'s Printable Cards</a></h3>
@@ -21,10 +22,8 @@
     <br>
     {{#each user.userECards}}
         <div>
-            {{this.cardName}}
             <br>
-            <h5>To: {{this.toPerson}}</h5>
-            <h5>From: {{this.fromPerson}}</h5>
+            <h5>{{this.cardName}}</h5>
         </div>
         <br>
     {{/each}}

@@ -1,12 +1,14 @@
-<div>
-
+<div class="container">
+    <div class="eCardShow">
     {{eCard.cardName}}
     <br>
     <h5>To: {{eCard.toPerson}}</h5>
     <h5>From: {{eCard.fromPerson}}</h5>
     <h5>Message: {{eCard.message}}</h5>
     <br>
+    <div class="eCardButton">
     <input type="submit" value="Edit eCard" onclick="window.location=`/users/{{userId}}/eCards/{{eCard._id}}/edit`;" />
     <input type="submit" value="Delete eCard" onclick="window.location=`/users/{{userId}}/eCards/{{eCard._id}}/delete`;" />
-
+</div>
+</div>
 </div>

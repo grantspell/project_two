@@ -1,12 +1,12 @@
 html,
 body {
-  display: flex;
+/*   display: flex;
   justify-content: space-around;
-  align-content: center;
+  align-content: center; */
   font-family: 'Slabo 27px', serif;
 }
 
-.flexContainerBG {
+/* .flexContainerBG {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -21,7 +21,61 @@ body {
   justify-content: space-around;
   flex: 1;
 }
+ */
+
+ .container {
+  width: 100vw;
+  height: 100vh;
+ }
+ 
+ .container2{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/resized-env.png');
+  background-repeat: no-repeat;
+ }
+
+ .userPadding {
+   padding: 200px;
+ }
 
 a {
   color: #003295;
+}
+
+.userHeaderH1 {
+  text-align: center;
+  padding-top: 8rem;
+  padding-right: 260px;
+}
+
+.userSubHeader {
+  text-align: center;
+  padding-top: 0rem;
+  padding-right: 260px;
+}
+
+.CreateUserButton {
+  padding-top: 100px;
+  padding-left: 240px;
+}
+
+.userIndex {
+  text-align: center;
+  padding-top: 90px;
+  padding-right: 260px;
+}
+
+.eCardShow {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/resized-post.png');
+  background-repeat: no-repeat;
+  color: white;
+  padding-top: 300px;
+  padding-left: 300px;
+}
+
+.eCardButton {
+  color: black;
 }
