@@ -1,25 +1,22 @@
-<div class="container">
+<div class="HomePageWrapper">
 
-<div class="container2">
+        <div class="HomeHeaderStyles">
+            <h2 class="userHeaderH1">BMC</h2>
+            <h6 class="userSubHeader">Bare Minimum Cards</h6>
+        </div>
 
-    <div class="row">
-    <h2 class="userHeaderH1">BMC</h2>
-    <h6 class="userSubHeader">Bare Minimum Cards</h6>
-    </div>
+        <div class="CreateUserButton" class="col s6 offset-s3">
+            <input type="submit" value="Create New User" onclick="window.location='/users/new';" />
+        </div>
 
-    <div class="CreateUserButton"  class="col s6 offset-s3">
-        <input type="submit" value="Create New User" onclick="window.location='/users/new';" />
-    </div>
-    
-    <div class="userIndex" class="col s6 offset-s3"><span class="flow-text">
-        {{#each users}}
-            <div>
-                <a href="/users/{{this.id}}">{{this.name}}'s Cards</a>
-            </div>
-            
-        {{/each}}
-        </span>
-    </div>
+        <div class="HomeUsersIndex" class="col s6 offset-s3">
+            <span class="flow-text">
+                {{#each users}}
+                <div>
+                    <a href="/users/{{this.id}}">{{this.name}}'s Cards</a>
+                </div>
+                {{/each}}
+            </span>
+        </div>
 
-</div>
 </div>

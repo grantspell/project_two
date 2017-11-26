@@ -1,40 +1,43 @@
 html,
 body {
-/*   display: flex;
-  justify-content: space-around;
-  align-content: center; */
   font-family: 'Slabo 27px', serif;
 }
 
-/* .flexContainerBG {
+.HomePageWrapper {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  align-content: center;
-  background-image: url('../images/resized-env.png');
-}
+  align-items: center;
+  text-align: center;
 
-.flexContainerContent {
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
-  flex: 1;
-}
- */
+  background: url('../images/resized-env.png') no-repeat center;
+  
+  }
 
- .container {
-  width: 100vw;
-  height: 100vh;
- }
- 
- .container2{
-  width: 100vw;
-  height: 100vh;
-  background-image: url('../images/resized-env.png');
-  background-repeat: no-repeat;
+ .HomeHeaderStyles {
+   margin-top: -190px;
+   position: fixed;
+
+  }
+  
+  .userSubHeader {
+    margin-top: -20px;
+  }
+
+ .CreateUserButton {
+    position: fixed;
  }
 
+ .HomeUsersIndex {
+    width: 500px;
+    height: 180px;
+    margin-top: 220px;
+    position: fixed;
+ }
+
+/* 
  .userPadding {
    padding: 200px;
  }
@@ -78,4 +81,4 @@ a {
 
 .eCardButton {
   color: black;
-}
+} */
